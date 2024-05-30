@@ -5,7 +5,7 @@
 
 // // Your web app's Firebase configuration
 // const firebaseConfig = {
-//   apiKey: "AIzaSyBz_JjbiNvupFjegme-rk2LNGaj2hMTjaE",
+//   apiKey: your Api key 
 //   authDomain: "e-commerce-2127c.firebaseapp.com",
 //   projectId: "e-commerce-2127c",
 //   storageBucket: "e-commerce-2127c.appspot.com",
