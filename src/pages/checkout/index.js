@@ -12,12 +12,6 @@ import axios from 'axios';
 
 const Checkout = () => {
 
-    const [formFields, setformFields] = useState({
-        name: '',
-        pincode: '',
-        address: '',
-        phoneNumber: ''
-    })
 
     const context = useContext(MyContext);
     const history = useNavigate();
