@@ -37,8 +37,8 @@ function App() {
   const [cartTotalAmount, setCartTotalAmount] = useState();
 
   useEffect(() => {
-    // getData('http://localhost:5000/productData');
-    // getCartData("http://localhost:5000/cartItems");
+    getData('http://localhost:3006/productData');
+    getCartData("http://localhost:3006/cartItems");
 
     const is_Login = localStorage.getItem('isLogin');
     setIsLogin(is_Login);
