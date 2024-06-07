@@ -36,28 +36,35 @@ const SignUp = () => {
     })
 
     const signUp = () => {
-        setShowLoader(true);
-        createUserWithEmailAndPassword(auth, formFields.email, formFields.password)
-            .then((userCredential) => {
-                // Signed up 
-                const user = userCredential.user;
-                console.log(user);
-                setShowLoader(false);
-                setFormFields({
-                    email:'',
-                    password:'',
-                    conformPassword:''
+        if(formFields.email!=="" && formFields.password!=="" && formFields.conformPassword!==""){
+            setShowLoader(true);
+            createUserWithEmailAndPassword(auth, formFields.email, formFields.password)
+                .then((userCredential) => {
+                    // Signed up 
+                    const user = userCredential.user;
+                    setShowLoader(false);
+                    setFormFields({
+                        email:'',
+                        password:'',
+                        conformPassword:''
+                    })
+                    // ...
                 })
-                navigate('/')
-                // ...
-            })
-            .catch((error) => {
-                const errorCode = error.code;
-                const errorMessage = error.message;
-                console.log(errorMessage);
-                // ..
-            });
+                .catch((error) => {
+                    const errorCode = error.code;
+                    const errorMessage = error.message;
+                    alert(error.message);
+                    setShowLoader(false);
+                    // ..
+                });
+        }
+
+        else{
+            alert("Please fill all the details");
+        }
+       
     }
+
 
 
     const onChangeField = (e) => {
