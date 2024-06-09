@@ -28,15 +28,15 @@ const Cart = () => {
 
         window.scrollTo(0, 0);
 
-    }, [])
+    }, [context.isLogin,history])
 
 
     const deleteItem = async (id) => {
-        // const response = await axios.delete(`http://localhost:5000/cartItems/${id}`);
-        // if (response !== null) {
-        //     getCartData("http://localhost:5000/cartItems");
-        //     context.removeItemsFromCart(id);
-        // }
+        const response = await axios.delete(`http://localhost:3006/cartItems/${id}`);
+        if (response !== null) {
+            context.getCartData("http://localhost:3006/cartItems");
+            context.removeItemsFromCart(id);
+        }
     }
 
 
@@ -70,7 +70,7 @@ const Cart = () => {
             "Content-Type": "application/json"
         }
 
-        const response = await fetch("http://localhost:7000/api/create-checkout-session", {
+        const response = await fetch("http://localhost:3006/api/create-checkout-session", {
             method: 'POST',
             headers: headers,
             body: JSON.stringify(body)
@@ -144,7 +144,7 @@ const Cart = () => {
                                                 cartItems.length !== 0 &&
                                                 cartItems.map((item, index) => {
                                                     return (
-                                                        <tr>
+                                                        <tr key={index}>
                                                             <td width={"50%"}>
                                                                 <div className='d-flex align-items-center'>
 
