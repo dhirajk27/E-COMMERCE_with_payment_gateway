@@ -65,4 +65,5 @@ node_modules/
 # dotenv environment variables file
 .env
 
-firebase.js
+# Ignore firebase.js in the src directory
+src/firebase.js
